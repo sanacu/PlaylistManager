@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Playlist</title>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 14px 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-left: auto; 
+  margin-right: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+table {
+  margin-left: auto; 
+  margin-right: auto;
+}
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+	<div align="center">
+		<br />
+		<h1>Edit Playlist</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${playlist}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+			<tr>				
+					<td>ID:</td>
+					<td>
+						<input type="text" th:field="*{id}" readonly="readonly" />
+					</td>
+				</tr>
+				<tr>
+					<td>Song Type:</td>
+					<td><input type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td>Song:</td>
+					<td><input type="text" th:field="*{song}" /></td>
+				</tr>
+				<tr>
+					<td>Singer:</td>
+					<td><input type="text" th:field="*{singer}" /></td>
+				</tr>
+											
+			</table>
+			<tr>
+					<td colspan="2"><button type="submit" class="button">Save</button></td> 
+				</tr>
+		</form>
+	</div>
+</body>
+</html>

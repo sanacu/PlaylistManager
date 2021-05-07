@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Song Manager</title>
+<style>
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+table {
+  margin-left: auto; 
+  margin-right: auto;
+}
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+<div align="center">
+    <h1> Playlists</h1>
+    <a href="new">Create New Playlist</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Song Type</th>
+                <th>Song</th>
+                <th>Singer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="Playlist : ${listPlaylist}">
+            	<td th:text="${Playlist.id}">ID</td>
+                <td th:text="${Playlist.name}">Song Type</td>
+                <td th:text="${Playlist.song}">Song</td>
+                <td th:text="${Playlist.singer}">Singer</td>
+              
+                <td>
+                	<a th:href="@{'/edit/' + ${Playlist.id}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${Playlist.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>
